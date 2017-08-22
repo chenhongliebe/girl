@@ -13,6 +13,6 @@ public class HttpAspect {
 
     @Before("execution(public * com.liebe.HelloController.*(..))")
     public void preHandler(){
-        System.out.println("111");
+        System.out.println("aop切面");
     }
 }
