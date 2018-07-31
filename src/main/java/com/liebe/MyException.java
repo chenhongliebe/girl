@@ -16,7 +16,7 @@ public class MyException extends RuntimeException {
 
     public MyException(String message){
         super(message);
-        this.message = message;
+//        this.message = message;
     }
 
     public MyException(Throwable e){
@@ -31,7 +31,7 @@ public class MyException extends RuntimeException {
     public MyException(String code,String message){
         super(message);
         this.code = code;
-        this.message = message;
+//        this.message = message;
     }
 
 
