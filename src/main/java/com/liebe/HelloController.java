@@ -18,9 +18,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Administrator on 2017/7/28.
@@ -216,14 +214,59 @@ public class HelloController {
     }
     private static int min =Integer.MAX_VALUE;
     public static final Point start = new Point(0,0);
+
     public static void main(String[] arg){
-        Point[] points=new Point[4];
-        points[0]=new Point(2,2);
-        points[1]=new Point(2,8);
-        points[2]=new Point(4,4);
-        points[3]=new Point(7,2);
-        int min =calcu(start,points,0,0);
-        System.out.println(min);
+//        Point[] points=new Point[4];
+//        points[0]=new Point(2,2);
+//        points[1]=new Point(2,8);
+//        points[2]=new Point(4,4);
+//        points[3]=new Point(7,2);
+//        int min =calcu(start,points,0,0);
+//        System.out.println(min);
+
+        Student zlj = new Student("丁晓宇", 21);
+        Student dxy = new Student("赵四", 22);
+        Student cjc = new Student("张三", 11);
+        Student lgc = new Student("刘武", 19);
+
+        List<Student> studentList = new ArrayList<Student>();
+        studentList.add(zlj);
+        studentList.add(dxy);
+        studentList.add(cjc);
+        studentList.add(lgc);
+
+        System.out.println("按年龄升序：");
+//        Collections.sort(studentList, new SortByAge());
+        for (Student student : studentList) {
+            System.out.println(student.getName() + " / " + student.getAge());
+        }
+        System.out.println();
+        System.out.println("按姓名排序：");
+//        Collections.sort(studentList, new SortByName());
+        for (Student student : studentList) {
+            System.out.println(student.getName() + " / " + student.getAge());
+        }
+
+
+    }
+
+
+    class SortByAge implements Comparator {
+        public int compare(Object o1, Object o2) {
+            Student s1 = (Student) o1;
+            Student s2 = (Student) o2;
+            if (s1.getAge() > s2.getAge())
+                return 1;
+            return -1;
+        }
+    }
+
+    class SortByName implements Comparator {
+        public int compare(Object o1, Object o2) {
+            Student s1 = (Student) o1;
+            Student s2 = (Student) o2;
+            return s1.getName().compareTo(s2.getName());
+        }
     }
 
 

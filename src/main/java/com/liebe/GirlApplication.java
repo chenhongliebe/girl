@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ImportResource;
 @SpringBootApplication
 @EnableAutoConfiguration
 @MapperScan(basePackages = "com.liebe.sys.dao", annotationClass = javax.annotation.Resource.class)
-@ImportResource(locations={"classpath:conf/*"})
+//@ImportResource(locations={"classpath:conf/*"})
 
 public class GirlApplication {
 

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE generatorConfiguration
-            PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-            "http://mybatis.org/dtd/my batis-generator-config_1_0.dtd">
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
     <classPathEntry
-            location="/Users/Administrator/.m2/repository/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar"/>
+            location="D:\java\apache-maven-3.5.3\repository\mysql\mysql-connector-java\5.1.35\mysql-connector-java-5.1.35.jar"/>
+            <!--location="/Users/Administrator/.m2/repository/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar"/>-->
     <!-- mvn mybatis-generator:generate -->
     <context id="my" targetRuntime="MyBatis3">
         <property name="suppressAllComments" value="true"/>
@@ -17,8 +18,8 @@
         <!-- 格式化XML代码 -->
         <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
         <!-- 配置插件 -->
-        <!--<plugin type="product.MyBatisPluginUtil"/>-->
-        <commentGenerator>
+        <!--<plugin type="product.MyBatisPluginUtil"/>  -->
+        <commentGenerator type="product.MysbatisCNUtil" >
             <!-- 各成员变量、类文件，此配置请忽更改，若要更改请确保对该配置的理解 -->
             <!-- 是否去除自动生成的注释 true：是； false:否 -->
             <property name="suppressAllComments" value="true"/>
@@ -42,7 +43,7 @@
         </javaModelGenerator>
 
         <!-- 配置sqlmap生成位置 -->
-        <sqlMapGenerator targetPackage="mappings.com.liebe.sys" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="mappings" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 

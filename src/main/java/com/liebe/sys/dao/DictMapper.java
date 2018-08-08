@@ -1,3 +1,10 @@
+/**
+ * 
+ * **
+ * 
+ * DictMapper.java
+ * 
+ */
 package com.liebe.sys.dao;
 
 import com.liebe.sys.entity.Dict;
