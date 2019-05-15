@@ -212,11 +212,11 @@
 				<version>1.3.5</version>
 				<dependencies>
 					<dependency>
-						<groupId>com.lieb</groupId>
-						<artifactId>chh</artifactId>
+						<groupId>com.liebe</groupId>
+						<artifactId>girl</artifactId>
 						<version>0.0.1-SNAPSHOT</version>
 						<scope>system</scope>
-						<systemPath>E:/girl-0.0.1-SNAPSHOT.jar</systemPath>
+<!-- 						<systemPath>E:/girl-0.0.1-SNAPSHOT.jar</systemPath> -->
 					</dependency>
 				</dependencies>
 				<executions>
@@ -246,7 +246,7 @@
 		</plugins>
 	</build>
 
-	<repositories>
+<!-- 	<repositories>
 		<repository>
 			<id>nexus</id>
 			<url>http://192.168.9.188:8081/repository/maven-public/</url>
@@ -264,7 +264,7 @@
 			<name>Nexus SnapshotRepository</name>
 			<url>http://192.168.9.188:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement> -->
 
 
 </project>
