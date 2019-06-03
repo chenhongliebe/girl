@@ -6,10 +6,12 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.liebe.Result;
 import com.liebe.sys.entity.User;
+import com.liebe.sys.service.Impl.UserServiceImpl;
 import com.liebe.sys.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,12 +25,16 @@ import java.util.List;
 @Slf4j
 public class UserController {
 
+    @Qualifier("")
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserServiceImpl service;
 
     @RequestMapping("get")
     public Result<User> getUser(Integer id){
         User user =userService.getUserById(id);
+        User user1 = service.getUserById(id);
         return Result.success(user);
     }
 

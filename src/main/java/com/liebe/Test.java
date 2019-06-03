@@ -1,0 +1,154 @@
+package com.liebe;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Factory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.aop.Advisor;
+import org.springframework.aop.MethodBeforeAdvice;
+import org.springframework.aop.framework.adapter.AdvisorAdapter;
+import org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor;
+import org.springframework.beans.factory.FactoryBean;
+import org.springframework.core.io.Resource;
+import org.springframework.web.servlet.DispatcherServlet;
+
+import java.lang.reflect.Proxy;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Properties;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Test {
+
+    LinkedHashMap linkedHashMap = new LinkedHashMap();
+
+
+
+    public static int[] charu(int[] datas){
+
+        for(int i=1;i<datas.length;i++){
+            int j =i-1;
+            while(datas[j]>datas[j++] && j>0){
+                int temp = datas[j++];
+                datas[j++] =datas[j];
+                datas[j]=temp;
+                j--;
+            }
+        }
+        return datas;
+    }
+
+    public static int[] xuanzhe(int[] datas){
+        for(int i=0;i<datas.length-1;i++){
+            int index =i;
+            for(int j=i+1;j<datas.length;j++){
+                if(datas[index]>datas[j]){
+                    index =j;
+                }
+            }
+            if(i!=index){
+
+            }
+        }
+
+        return datas;
+    }
+
+    public static int[] maopao(int[] datas){
+        for(int i=0;i<datas.length-1;i++){
+            for(int j=0;j<datas.length-i;j++){
+                if(datas[j]>datas[j+1]){
+                    int temp = datas[j+1];
+                    datas[j+1] =datas[j];
+                    datas[j]=temp;
+                }
+            }
+        }
+        return datas;
+    }
+
+    public static int kuaisu(int[] datas,int left,int right){
+        int index=datas[left];
+        while(left<right){
+            while (left<right && index <=datas[right]){
+                right--;
+            }
+            datas[left] =datas[right];
+            while (left<right && index >datas[left]){
+                left++;
+            }
+            datas[right] =datas[left];
+        }
+        datas[left] =index;
+        return left;
+    }
+
+    public static void main(String[] args) {
+        /**
+         * 情景五：
+         *  JAVA编译器对string + 基本类型/常量 是当成常量表达式直接求值来优化的。
+         *  运行期的两个string相加，会产生新的对象的，存储在堆(heap)中
+         */
+//        String str6 = "b";
+//        String str7 = "a" + str6;
+//        String str67 = "ab";
+//        System.out.println("str7 = str67 : "+ (str7 == str67));
+//        //↑str6为变量，在运行期才会被解析。
+//        final String str8 = "b";
+//        String str9 = "a" + str8;
+//        String str89 = "ab";
+//        System.out.println("str9 = str89 : "+ (str9 == str89));
+        //↑str8为常量变量，编译期会被优化
+        //↑------------------------------------------------------over
+
+//        new SqlSessionFactoryBuilder().build();
+//        char c = 'r';
+//        int a=c;
+//        char b='A';
+//        b+=32;
+//        String str="中";
+//        byte[] bytes =str.getBytes();
+//        int e =b;
+//        int i =Integer.MAX_VALUE;
+//        System.out.println(a);
+//        System.out.println(e);
+//        System.out.println(b);
+//        System.out.println(bytes.length);
+//        HashMap s;
+//        List list;
+//        Comparable comparable;
+//        AtomicInteger atomicInteger;
+//        MethodBeforeAdvice methodBeforeAdvice;
+//        AdvisorAdapter advisorAdapter;
+//
+//        Properties properties;
+////        this.getClass().getClassLoader()
+//        try {
+//            MethodBeforeAdviceInterceptor methodBeforeAdviceInterceptor;
+//        } catch (Exception e1) {
+//            e1.printStackTrace();
+//        }
+//        try {
+//            DispatcherServlet dispatcherServlet;
+//        } catch (Exception e1) {
+//            e1.printStackTrace();
+//        }
+        ClassLoader classLoader0 = Test.class.getClassLoader();
+        ClassLoader classLoader = Test.class.getClassLoader().getParent();
+        ClassLoader classLoader1 =classLoader.getParent();
+        ClassLoader c = Integer.class.getClassLoader();
+        System.out.println(c);
+
+        System.out.println(classLoader0);
+        System.out.println(classLoader);
+        System.out.println(classLoader1);
+
+        //cglib 代理原理
+
+//        Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
+//                target.getClass().getInterfaces(), this);
+    }
+
+
+
+}

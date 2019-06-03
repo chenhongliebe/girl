@@ -71,8 +71,7 @@ public class AlgorithmsAndSorting {
             datas[right]=datas[left];
         }
         datas[left]=temp;
-        int data=left;
-        return data;
+        int data=left;return data;
     }
 
 
