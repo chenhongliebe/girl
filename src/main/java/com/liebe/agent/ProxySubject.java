@@ -23,20 +23,20 @@ public class ProxySubject implements InvocationHandler {
     }
 
     public static void main(String[] args) {
-        UserService proxy = (UserService)Proxy.newProxyInstance(UserServiceImpl.class.getClassLoader(),
-                UserServiceImpl.class.getInterfaces(),
-                new ProxySubject(new UserServiceImpl()));
+        UserTestService proxy = (UserTestService)Proxy.newProxyInstance(UserTestServiceImpl.class.getClassLoader(),
+                UserTestServiceImpl.class.getInterfaces(),
+                new ProxySubject(new UserTestServiceImpl()));
         proxy.sayHello();
-        Class[] c =UserServiceImpl.class.getInterfaces();
+        Class[] c = UserTestServiceImpl.class.getInterfaces();
         for(Class cc:c){
             System.out.println(cc.getName());
         }
         System.out.println(proxy.getClass().getName());
 
         Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(UserServiceImpl.class);
+        enhancer.setSuperclass(UserTestServiceImpl.class);
         enhancer.setCallback(new MyMethodInterceptor());
-        UserService userService =(UserService) enhancer.create();
+        UserTestService userService =(UserTestService) enhancer.create();
         userService.sayHello();
     }
 }

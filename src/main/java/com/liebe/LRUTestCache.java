@@ -3,7 +3,7 @@ package com.liebe;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class LRUCache extends LinkedHashMap {
+public class LRUTestCache extends LinkedHashMap {
 
     private final int cacheSize;
 
@@ -11,7 +11,7 @@ public class LRUCache extends LinkedHashMap {
      * true 让map按照访问顺序来进行排序 最近访问的放在头部 最老访问的放在尾部
      * @param cacheSize
      */
-    public LRUCache(int cacheSize) {
+    public LRUTestCache(int cacheSize) {
         super((int) Math.ceil((cacheSize/0.75)+1), 0.75f, true);
         this.cacheSize = cacheSize;
     }

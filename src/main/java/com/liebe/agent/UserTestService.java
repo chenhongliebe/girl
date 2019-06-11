@@ -1,6 +1,6 @@
 package com.liebe.agent;
 
-public interface UserService {
+public interface UserTestService {
 
     void sayHello();
 

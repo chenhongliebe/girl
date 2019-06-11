@@ -4,13 +4,13 @@ package com.liebe;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class LRU<K,V> {
+public class LRUTest<K,V> {
 
     private static final float hashLoadFactory = 0.75f;
     private LinkedHashMap<K,V> map;
     private int cacheSize;
 
-    public LRU(int cacheSize) {
+    public LRUTest(int cacheSize) {
         this.cacheSize = cacheSize;
         int capacity = (int)Math.ceil(cacheSize / hashLoadFactory) + 1;
         map = new LinkedHashMap<K,V>(capacity, hashLoadFactory, true){
@@ -18,7 +18,7 @@ public class LRU<K,V> {
 
             @Override
             protected boolean removeEldestEntry(Map.Entry eldest) {
-                return size() > LRU.this.cacheSize;
+                return size() > LRUTest.this.cacheSize;
             }
         };
     }

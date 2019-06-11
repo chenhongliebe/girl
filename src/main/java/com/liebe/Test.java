@@ -1,7 +1,9 @@
 package com.liebe;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Factory;
+import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.MethodBeforeAdvice;
@@ -16,6 +18,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Test {
@@ -133,20 +136,62 @@ public class Test {
 //        } catch (Exception e1) {
 //            e1.printStackTrace();
 //        }
-        ClassLoader classLoader0 = Test.class.getClassLoader();
-        ClassLoader classLoader = Test.class.getClassLoader().getParent();
-        ClassLoader classLoader1 =classLoader.getParent();
-        ClassLoader c = Integer.class.getClassLoader();
-        System.out.println(c);
-
-        System.out.println(classLoader0);
-        System.out.println(classLoader);
-        System.out.println(classLoader1);
-
+//        ClassLoader classLoader0 = Test.class.getClassLoader();
+//        ClassLoader classLoader = Test.class.getClassLoader().getParent();
+//        ClassLoader classLoader1 =classLoader.getParent();
+//        ClassLoader c = Integer.class.getClassLoader();
+//        System.out.println(c);
+//
+//        System.out.println(classLoader0);
+//        System.out.println(classLoader);
+//        System.out.println(classLoader1);
+//
+//        ThreadPoolExecutor threadPoolExecutor;
+//        ExecutorService executorService = Executors.newFixedThreadPool(15);
+//        Future future = executorService.submit(new CallableTest());
+//        FutureTask future1 = new FutureTask(new CallableTest());
+//        Thread thread = new Thread(future1);
+//        thread.start();
+//        Integer i = new Integer(100);
+//        String str = new String("100");
+//        String s = new String("100");
+//        Long l = new Long(100);
+//        System.out.println(str.equals(s));
+//        System.out.println(i.equals(str));
+//        System.out.println(str.equals(l));
+//        System.out.println(i.equals(l));
+//        System.out.println(l.equals(i));
+//        int a =100;
+//        Integer i = 100;
+//        Integer i2 =100;
+//        Integer i3 = 1000;
+//        Integer i4 = 1000;
+//        System.out.println(i ==i2);
+//        System.out.println(i3 ==i4);
+//        System.out.println(i3.equals(i4));
+//        System.out.println(i.equals(i2));
+//        String s1 ="ab";
+//        String s2 ="ab";
+//        String s3 ="a"+"b";
+//        System.out.println(s1==s2);
+        char[] chars ={'a','b','c'};
+        char[] s =chars;
+        chars[1]='x';
+        System.out.println(s);
+        String s1 ="ab";
+        String s2 =s1;
+        s1="cd";
+        System.out.println(s2);
+//        ExecutorType.BATCH d;
         //cglib 代理原理
 
 //        Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
 //                target.getClass().getInterfaces(), this);
+        Integer i = Integer.valueOf(10);
+        Integer j = new Integer(10);
+        Integer k = Integer.valueOf(145);
+        Integer p = new Integer(145);
+        System.out.println(i==j);
     }
 
 
